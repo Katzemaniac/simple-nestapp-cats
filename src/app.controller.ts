@@ -1,12 +1,13 @@
-import { Controller, Get, HttpCode, Param, Post, Query, Req } from '@nestjs/common';
-import type { Request } from 'express';
+import { Controller, Get, HttpCode, HttpStatus, Param, Post, Query, Res } from '@nestjs/common';
+import type { Response } from 'express';
 
 // decorator defining this class to be a controller, providing necessary metadata
 @Controller('cats') // specifying a path prefix, grouping related routes to manipulate 'cats' entity (optional)
 export class CatController {
   @Get('all') // endpoint defined by HTTP request method and prefix 'cats'
-  findAll(@Req() request: Request): string { // access the request's details (you can use @Body to access directly)
-    return 'Return all cats';
+  findAll(@Res({ passthrough: true }) res: Response) {
+    res.status(HttpStatus.OK);
+    return [];
   }
 
   @Post()
