@@ -6,7 +6,7 @@ import { Cat } from './interfaces/cat.interface';
 
 @Injectable() // attaching metadata to CatService class
 // this class it's will handle data storage and retrieval
-export class CatService {
+export class CatsService {
   private readonly cats: Cat[] = [];
 
   create(cat: Cat) {

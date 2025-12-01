@@ -1,10 +1,7 @@
 import { Module } from '@nestjs/common';
-import { CatController } from './app.controller';
-import { CatService } from './app.service';
+import { CatsModule } from './cats/cats.module';
 
 @Module({
-  imports: [],
-  controllers: [CatController], // we need register the CatsController here within the @Module() decorator to the Nest create a instance of the class
-  providers: [CatService],
+  imports: [CatsModule],
 })
 export class AppModule { }
